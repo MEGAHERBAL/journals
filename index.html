@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JOURNALS</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            overflow: hidden;
+        }
+        
+        .container {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        
+        .title {
+            text-align: center;
+            padding: 20px;
+            font-size: 2em;
+        }
+        
+        .main {
+            flex: 1;
+            display: flex;
+        }
+        
+        .sidebar {
+            width: 200px;
+            padding: 20px;
+        }
+        
+        .content {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        @media (max-aspect-ratio: 1/1) {
+            .main {
+                flex-direction: column;
+            }
+            
+            .sidebar {
+                display: none;
+            }
+            
+            .mobile-menu {
+                display: block;
+                text-align: center;
+                padding: 20px;
+            }
+            
+            .mobile-menu button {
+                background: #333;
+                color: #fff;
+                border: none;
+                padding: 10px 20px;
+                cursor: pointer;
+            }
+        }
+        
+        .mobile-menu {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">JOURNALS</div>
+        
+        <div class="mobile-menu">
+            <button>&lt;select&gt;</button>
+        </div>
+        
+        <div class="main">
+            <div class="sidebar">
+            </div>
+            
+            <div class="content">
+            </div>
+            
+            <div class="sidebar">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
