@@ -8,9 +8,12 @@ This repository uses cloudflare pages to host the site. Contributions/pull reque
 ## In Progress
 - ~~Initial commit and updated readme~~ 
 - ~~Domain registered~~
-- Index page finished
+- ~~Index page finished~~
+- Member bio/hover behaviour implemented on index
+- Google forms for member info
 - Subdomain template finished
 - All custom subdomains added
+- Mobile layout implemented
 
 ## Performance Optimisations
 I intend for the site to be fast and minimal, at least for now. I'll provide a list of optimisations I intend to implement. This is primarily for my own reference, but if you're submitting a pull request it might be worth keeping these in mind. Some of these will result in messy source code but imo that's okay since it's a small site.

@@ -1,16 +1,20 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>JOURNALS</title>
+
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             background: #000;
             color: #fff;
@@ -18,52 +22,118 @@
             height: 100vh;
             overflow: hidden;
         }
-        
+
         .container {
             display: flex;
-            flex-direction: column;
             height: 100vh;
         }
-        
+
+        .header-spacer {
+            height: 3vh;
+        }
+
+        .title-spacer {
+            height: 3vh;
+        }
+
+        .footer-spacer {
+            height: 18vh;
+        }
+
         .title {
             text-align: center;
-            padding: 20px;
-            font-size: 2em;
-        }
-        
-        .main {
-            flex: 1;
-            display: flex;
-        }
-        
-        .sidebar {
-            width: 200px;
-            padding: 20px;
-        }
-        
-        .content {
-            flex: 1;
+            font-family: 'EVA-Matisse', serif;
+            font-size: clamp(3rem, 8vw, 8rem);
+            letter-spacing: -0.01em;
+            transform: scaleX(0.5);
+            width: 80%;
+            margin: 0 auto;
+            text-shadow:
+                0 0 10px rgba(255, 255, 255, 0.6),
+                0 0 20px rgba(255, 255, 255, 0.4),
+                0 0 40px rgba(255, 255, 255, 0.2);
+            height: 12vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 20px;
         }
-        
+
+        .content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .content-inner {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            width: 100%;
+        }
+
+        .central-view {
+            background: #1a0f1a;
+            border: 3px solid #fff;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+            width: 80%;
+            aspect-ratio: 16 / 9;
+        }
+
+        .sidebar {
+            width: 12%;
+            padding: 20px;
+            font-family: Helvetica, Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            background: #1a0f1a;
+            border-right: 3px solid #fff;
+            box-shadow: 3px 0 15px rgba(255, 255, 255, 0.4);
+            height: 100vh;
+        }
+
+        .sidebar.right {
+            border-right: none;
+            border-left: 3px solid #fff;
+            box-shadow: -3px 0 15px rgba(255, 255, 255, 0.4);
+        }
+
+        .sidebar a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 0;
+            text-align: center;
+            transition: color 0.3s ease;
+        }
+
+        .sidebar a:hover {
+            color: #999;
+        }
+
+        .mobile-menu {
+            display: none;
+        }
+
+        @font-face {
+            font-family: 'EVA-Matisse';
+            src: url('fonts/EVA-Matisse_Classic.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
         @media (max-aspect-ratio: 1/1) {
-            .main {
-                flex-direction: column;
-            }
-            
             .sidebar {
                 display: none;
             }
-            
+
             .mobile-menu {
                 display: block;
                 text-align: center;
                 padding: 20px;
             }
-            
+
             .mobile-menu button {
                 background: #333;
                 color: #fff;
@@ -72,30 +142,46 @@
                 cursor: pointer;
             }
         }
-        
-        .mobile-menu {
-            display: none;
-        }
     </style>
 </head>
+
 <body>
     <div class="container">
-        <div class="title">JOURNALS</div>
-        
-        <div class="mobile-menu">
-            <button>&lt;select&gt;</button>
+        <div class="sidebar">
+            <a href="index.html">placeholder1</a>
+            <a href="index.html">placeholder2</a>
+            <a href="index.html">placeholder3</a>
+            <a href="index.html">placeholder4</a>
         </div>
-        
-        <div class="main">
-            <div class="sidebar">
+
+        <div class="content">
+            <div class="content-inner">
+                <div class="header-spacer"></div>
+
+                <div class="title">JOURNALS</div>
+
+                <div class="title-spacer"></div>
+
+                <div class="mobile-menu">
+                    <button>&lt;select&gt;</button>
+                </div>
+
+                <div class="central-view">
+                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/P5oTTHAEwM4" frameborder="0"
+                        allow="encrypted-media; web-share" allowfullscreen></iframe>
+                </div>
+
+                <div class="footer-spacer"></div>
             </div>
-            
-            <div class="content">
-            </div>
-            
-            <div class="sidebar">
-            </div>
+        </div>
+
+        <div class="sidebar right">
+            <a href="index.html">placeholder5</a>
+            <a href="index.html">placeholder6</a>
+            <a href="index.html">placeholder7</a>
+            <a href="index.html">placeholder8</a>
         </div>
     </div>
 </body>
+
 </html>
