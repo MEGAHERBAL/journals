@@ -7,7 +7,7 @@ This repository uses cloudflare pages to host the site. Contributions/pull reque
 
 ## In Progress
 - ~~Initial commit and updated readme~~ 
-- Domain registered
+- ~~Domain registered~~
 - Index page finished
 - Subdomain template finished
 - All custom subdomains added
