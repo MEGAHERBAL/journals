@@ -146,43 +146,6 @@
 </head>
 
 <body>
-    <script>
-        const hostname = window.location.hostname;
-        const subdomain = hostname.split('.')[0];
-        
-        if (subdomain !== 'journals' && subdomain !== 'www' && hostname.includes('.')) {
-            loadUserPage(subdomain);
-        }
-        
-        function loadUserPage(username) {
-            document.body.innerHTML = getUserPageContent(username);
-        }
-        
-        function getUserPageContent(username) {
-            if (username === 'megaherb') {
-                return `
-                    <div style="background: #000; color: #fff; font-family: Arial, sans-serif; height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center;">
-                        <h1 style="font-size: 3rem; margin-bottom: 2rem; text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);">MEGAHERB</h1>
-                        <div style="background: #1a0f1a; border: 3px solid #fff; box-shadow: 0 0 15px rgba(255, 255, 255, 0.4); padding: 3rem; max-width: 600px; text-align: center;">
-                            <p style="font-size: 1.2rem; line-height: 1.6; margin-bottom: 2rem;">MEGAHERB</p>
-                            <p style="opacity: 0.8;">This is a test page to verify subdomain routing is working correctly.</p>
-                            <br>
-                            <a href="//journals.network" style="color: #fff; text-decoration: underline;">← Return to index.</a>
-                        </div>
-                    </div>
-                `;
-            }
-            
-            return `
-                <div style="background: #000; color: #fff; font-family: Arial, sans-serif; height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center;">
-                    <h1 style="font-size: 3rem; margin-bottom: 2rem;">User Not Found</h1>
-                    <p>The subdomain "${username}" doesn't exist yet.</p>
-                    <br>
-                    <a href="//journals.network" style="color: #fff; text-decoration: underline;">← Back to main site</a>
-                </div>
-            `;
-        }
-    </script>
     <div class="container">
         <div class="sidebar">
             <a href="index.html">placeholder1</a>
