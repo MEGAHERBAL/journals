@@ -7,13 +7,13 @@ class JournalsPreloader {
         this.pendingTimeouts = [];
         
         this.artists = [
-            { name: "pearl lump", bio: "04 01 half vampire", url: "//pearllump.journals.network" },
-            { name: "Llythyryn Mud", bio: "𓆏𓆏𓆏", url: "//llythyrynmud.journals.network" },
-            { name: "tilde", bio: "~", url: "//tilde.journals.network" },
-            { name: "Expoded", bio: "Sonic Realms Emerge from Decay", url: "//expoded.journals.network" },
-            { name: "Voidsong", bio: "", url: "//voidsong.journals.network" },
-            { name: "MEGAHERB", bio: "", url: "//megaherb.journals.network" },
-            { name: "TWELVE", bio: "Hi, I'm TWELVE. I've been producing for over 15 years and specialise in mixing, mastering, and sound design. From Drum & Bass and Dubstep to House and Techno, experimental genres and beyond, I like toying with all sorts of digital audio.\n\nI'm all about collaboration and when I'm not working on client projects, I'm diving deep into sound design, crafting custom patches, creating powerful drums and sample packs, synthesising new textures, and constantly exploring new ways to shape audio. For me, it's all about innovation and constantly evolving my sound whilst keeping an ear to the ground on what's fresh and exciting.", url: "//twelve.journals.network" }
+            { name: "pearl lump", bio: "04 01 half vampire", url: "//pearllump.journals.network", preloadUrl: "members/pearllump.html" },
+            { name: "Llythyryn Mud", bio: "𓆏𓆏𓆏", url: "//llythyrynmud.journals.network", preloadUrl: "members/llythyrynmud.html" },
+            { name: "tilde", bio: "~", url: "//tilde.journals.network", preloadUrl: "members/tilde.html" },
+            { name: "Expoded", bio: "Sonic Realms Emerge from Decay", url: "//expoded.journals.network", preloadUrl: "members/expoded.html" },
+            { name: "Voidsong", bio: "", url: "//voidsong.journals.network", preloadUrl: "members/voidsong.html" },
+            { name: "MEGAHERB", bio: "", url: "//megaherb.journals.network", preloadUrl: "members/megaherb.html" },
+            { name: "TWELVE", bio: "Hi, I'm TWELVE. I've been producing for over 15 years and specialise in mixing, mastering, and sound design. From Drum & Bass and Dubstep to House and Techno, experimental genres and beyond, I like toying with all sorts of digital audio.\n\nI'm all about collaboration and when I'm not working on client projects, I'm diving deep into sound design, crafting custom patches, creating powerful drums and sample packs, synthesising new textures, and constantly exploring new ways to shape audio. For me, it's all about innovation and constantly evolving my sound whilst keeping an ear to the ground on what's fresh and exciting.", url: "//twelve.journals.network", preloadUrl: "members/twelve.html" }
         ];
 
         this.elements = {
@@ -71,9 +71,12 @@ class JournalsPreloader {
             const url = link.getAttribute('href');
             
             if (!artistName || !url) return;
+            
+            const artist = this.artists.find(a => a.name === artistName);
+            if (!artist) return;
 
             link.addEventListener('mouseenter', () => {
-                this.handleArtistHover(artistName, url);
+                this.handleArtistHover(artistName, artist.preloadUrl);
             });
 
             link.addEventListener('mouseleave', () => {
@@ -82,17 +85,22 @@ class JournalsPreloader {
 
             link.addEventListener('click', (e) => {
                 e.preventDefault();
-                this.handleArtistClick(url);
+                this.handleArtistClick(url, artist.preloadUrl);
             });
+        });
+        
+        // Handle browser back button
+        window.addEventListener('popstate', () => {
+            window.location.reload();
         });
     }
 
-    handleArtistHover(artistName, url) {
+    handleArtistHover(artistName, preloadUrl) {
         this.clearPendingTimeouts();
         this.currentArtist = artistName;
         this.transitionState = 'hovering';
         
-        this.preloadPage(url);
+        this.preloadPage(preloadUrl);
         
         // Fade out glow first
         this.elements.title.classList.add('fade-glow');
@@ -166,29 +174,36 @@ class JournalsPreloader {
         }, 300);
     }
 
-    async handleArtistClick(url) {
-        const preloadedHtml = await this.preloadPage(url);
+    async handleArtistClick(url, preloadUrl) {
+        const preloadedHtml = await this.preloadPage(preloadUrl);
         
         if (preloadedHtml) {
+            // Replace entire document with preloaded content
             const tempDiv = document.createElement('div');
             tempDiv.innerHTML = preloadedHtml;
-            const newContent = tempDiv.querySelector('.content-box');
+            const newDocumentContent = tempDiv.querySelector('html') || tempDiv;
             
-            if (newContent) {
-                this.elements.centralView.style.height = 'auto';
-                this.elements.centralView.style.aspectRatio = 'unset';
+            // Fade out current page
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.2s ease';
+            
+            setTimeout(() => {
+                // Replace entire document content
+                document.documentElement.innerHTML = newDocumentContent.innerHTML;
                 
+                // Update URL without triggering navigation
+                window.history.pushState({}, '', url);
+                
+                // Fade in new page
+                document.body.style.opacity = '1';
+                
+                // Fallback navigation after brief delay
                 setTimeout(() => {
-                    this.elements.bioContent.innerHTML = newContent.innerHTML;
-                    this.elements.bioContent.classList.add('show');
-                    
-                    setTimeout(() => {
+                    if (window.location.href !== url) {
                         window.location.href = url;
-                    }, 100);
-                }, 150);
-            } else {
-                window.location.href = url;
-            }
+                    }
+                }, 50);
+            }, 200);
         } else {
             window.location.href = url;
         }
