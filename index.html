@@ -46,16 +46,24 @@
             font-size: clamp(3rem, 8vw, 8rem);
             letter-spacing: -0.01em;
             transform: scaleX(0.5);
-            width: 80%;
+            width: 90%;
+            min-width: 40vw;
+            max-width: 60vw;
             margin: 0 auto;
             text-shadow:
                 0 0 10px rgba(255, 255, 255, 0.6),
                 0 0 20px rgba(255, 255, 255, 0.4),
                 0 0 40px rgba(255, 255, 255, 0.2);
-            height: 12vh;
+            height: 15vh;
             display: flex;
             align-items: center;
             justify-content: center;
+            transition: opacity 0.3s ease, text-shadow 0.15s ease;
+            white-space: nowrap;
+        }
+
+        .title.fade-glow {
+            text-shadow: none;
         }
 
         .content {
@@ -79,10 +87,39 @@
             box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
             width: 80%;
             aspect-ratio: 16 / 9;
+            position: relative;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .central-view iframe {
+            transition: opacity 0.3s ease;
+        }
+
+        .bio-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            padding: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            font-family: Helvetica, sans-serif;
+            font-size: 1.2rem;
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        .bio-content.show {
+            opacity: 1;
         }
 
         .sidebar {
-            width: 12%;
+            width: 15%;
             padding: 20px;
             font-family: Helvetica, Arial, sans-serif;
             display: flex;
@@ -106,6 +143,7 @@
             padding: 10px 0;
             text-align: center;
             transition: color 0.3s ease;
+            cursor: pointer;
         }
 
         .sidebar a:hover {
@@ -148,16 +186,17 @@
 <body>
     <div class="container">
         <div class="sidebar">
-            <a href="//pearllump.journals.network">pearl lump</a>
-            <a href="//llythyrynmud.journals.network">Llythyryn Mud</a>
-            <a href="//tilde.journals.network">tilde</a>
+            <a href="//pearllump.journals.network" data-artist="pearl lump">pearl lump</a>
+            <a href="//llythyrynmud.journals.network" data-artist="Llythyryn Mud">Llythyryn Mud</a>
+            <a href="//tilde.journals.network" data-artist="tilde">tilde</a>
+            <a href="//expoded.journals.network" data-artist="Expoded">Expoded</a>
         </div>
 
         <div class="content">
             <div class="content-inner">
                 <div class="header-spacer"></div>
 
-                <div class="title">JOURNALS</div>
+                <div class="title" id="title">JOURNALS</div>
 
                 <div class="title-spacer"></div>
 
@@ -165,9 +204,10 @@
                     <button>&lt;select&gt;</button>
                 </div>
 
-                <div class="central-view">
-                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/P5oTTHAEwM4" frameborder="0"
+                <div class="central-view" id="central-view">
+                    <iframe id="youtube-embed" width="100%" height="100%" src="https://www.youtube.com/embed/P5oTTHAEwM4" frameborder="0"
                         allow="encrypted-media; web-share" allowfullscreen></iframe>
+                    <div class="bio-content" id="bio-content"></div>
                 </div>
 
                 <div class="footer-spacer"></div>
@@ -175,11 +215,13 @@
         </div>
 
         <div class="sidebar right">
-            <a href="//voidsong.journals.network">Voidsong</a>
-            <a href="//megaherb.journals.network">MEGAHERB</a>
-            <a href="//twelve.journals.network">TWELVE</a>
+            <a href="//voidsong.journals.network" data-artist="Voidsong">Voidsong</a>
+            <a href="//megaherb.journals.network" data-artist="MEGAHERB">MEGAHERB</a>
+            <a href="//twelve.journals.network" data-artist="TWELVE">TWELVE</a>
         </div>
     </div>
+
+    <script src="scripts/preloader.js"></script>
 </body>
 
 </html>

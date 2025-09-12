@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Voidsong - JOURNALS</title>
     <style>
+        @font-face {
+            font-family: 'EVA-Matisse';
+            src: url('../fonts/EVA-Matisse_Classic.ttf') format('truetype');
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -14,18 +19,50 @@
         body {
             background: #000;
             color: #fff;
-            font-family: Arial, sans-serif;
+            font-family: Helvetica, sans-serif;
             height: 100vh;
+            overflow: hidden;
+        }
+
+        .content {
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            height: 100vh;
+            width: 100%;
         }
 
-        h1 {
-            font-size: 3rem;
-            margin-bottom: 2rem;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+        .header-spacer {
+            height: 3vh;
+        }
+
+        .title-spacer {
+            height: 3vh;
+        }
+
+        .footer-spacer {
+            height: 18vh;
+        }
+
+        .title {
+            text-align: center;
+            font-family: 'EVA-Matisse', serif;
+            font-size: clamp(3rem, 8vw, 8rem);
+            letter-spacing: -0.01em;
+            transform: scaleX(0.5);
+            width: 90%;
+            min-width: 40vw;
+            max-width: 60vw;
+            margin: 0 auto;
+            text-shadow:
+                0 0 10px rgba(255, 255, 255, 0.6),
+                0 0 20px rgba(255, 255, 255, 0.4),
+                0 0 40px rgba(255, 255, 255, 0.2);
+            height: 12vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            white-space: nowrap;
         }
 
         .content-box {
@@ -33,29 +70,82 @@
             border: 3px solid #fff;
             box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
             padding: 3rem;
-            max-width: 600px;
+            max-width: 800px;
+            text-align: left;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: max-content auto 1fr;
+            gap: 1rem 1rem;
+            align-items: start;
+            width: fit-content;
+            margin: 0 auto;
+        }
+
+        .highlight {
+            margin: 2rem 0;
             text-align: center;
         }
 
-        .content-box p {
-            font-size: 1.2rem;
-            line-height: 1.6;
-            margin-bottom: 2rem;
+        .label {
+            text-align: right;
         }
 
-        .content-box a {
+        .colon {
+            text-align: center;
+        }
+
+        .info {
+            text-align: left;
+            font-size: 0.9rem;
+        }
+
+        .info a {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        .return-link {
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .return-link a {
             color: #fff;
             text-decoration: underline;
         }
     </style>
 </head>
 <body>
-    <h1>Voidsong</h1>
+    <div class="content">
+        <div class="header-spacer"></div>
+        <div class="title">Voidsong</div>
+        <div class="title-spacer"></div>
     <div class="content-box">
-        <p>Member page placeholder.</p>
-        <p>This should be accessible at voidsong.journals.network</p>
-        <br>
-        <a href="//journals.network">← Return to index</a>
+        <div class="highlight">
+            <iframe width="100%" height="100" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2031889784&color=%23511e0a&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/ccundefined" title="CC Undefined" target="_blank" style="color: #cccccc; text-decoration: none;">CC Undefined</a> · <a href="https://soundcloud.com/ccundefined/voidsong-bykriders" title="Voidsong - Bykriders" target="_blank" style="color: #cccccc; text-decoration: none;">Voidsong - Bykriders</a></div>
+        </div>
+        
+        <div class="info-grid">
+            <div class="label">SoundCloud</div>
+            <div class="colon">:</div>
+            <div class="info"><a href="https://soundcloud.com/voidsong">https://soundcloud.com/voidsong</a></div>
+            
+            <div class="label">Bandcamp</div>
+            <div class="colon">:</div>
+            <div class="info"><a href="https://voidsong23.bandcamp.com">https://voidsong23.bandcamp.com</a></div>
+            
+            <div class="label">Discord</div>
+            <div class="colon">:</div>
+            <div class="info">voidsong23</div>
+        </div>
+        
+        <div class="return-link">
+            <a href="//journals.network">← Return to index</a>
+        </div>
+    </div>
+        <div class="footer-spacer"></div>
     </div>
 </body>
 </html>

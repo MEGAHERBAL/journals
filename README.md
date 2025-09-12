@@ -9,9 +9,9 @@ This repository uses cloudflare pages to host the site. Contributions/pull reque
 - ~~Initial commit and updated readme~~ 
 - ~~Domain registered~~
 - ~~Index page finished~~
-- Member bio/hover behaviour implemented on index
+- ~~Member bio/hover behaviour implemented on index~~
 - ~~Google forms for member info~~
-- Subdomain template finished
+- ~~Subdomain template finished~~
 - ~~All custom subdomains added~~
 - Mobile layout implemented
 

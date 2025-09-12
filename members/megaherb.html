@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MEGAHERB - JOURNALS</title>
     <style>
+        @font-face {
+            font-family: 'EVA-Matisse';
+            src: url('../fonts/EVA-Matisse_Classic.ttf') format('truetype');
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -14,18 +19,50 @@
         body {
             background: #000;
             color: #fff;
-            font-family: Arial, sans-serif;
+            font-family: Helvetica, sans-serif;
             height: 100vh;
+            overflow: hidden;
+        }
+
+        .content {
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            height: 100vh;
+            width: 100%;
         }
 
-        h1 {
-            font-size: 3rem;
-            margin-bottom: 2rem;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+        .header-spacer {
+            height: 3vh;
+        }
+
+        .title-spacer {
+            height: 3vh;
+        }
+
+        .footer-spacer {
+            height: 18vh;
+        }
+
+        .title {
+            text-align: center;
+            font-family: 'EVA-Matisse', serif;
+            font-size: clamp(3rem, 8vw, 8rem);
+            letter-spacing: -0.01em;
+            transform: scaleX(0.5);
+            width: 90%;
+            min-width: 40vw;
+            max-width: 60vw;
+            margin: 0 auto;
+            text-shadow:
+                0 0 10px rgba(255, 255, 255, 0.6),
+                0 0 20px rgba(255, 255, 255, 0.4),
+                0 0 40px rgba(255, 255, 255, 0.2);
+            height: 12vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            white-space: nowrap;
         }
 
         .content-box {
@@ -33,29 +70,35 @@
             border: 3px solid #fff;
             box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
             padding: 3rem;
-            max-width: 600px;
+            max-width: 800px;
             text-align: center;
         }
 
-        .content-box p {
-            font-size: 1.2rem;
-            line-height: 1.6;
+        .no-info {
+            font-size: 1rem;
             margin-bottom: 2rem;
+            opacity: 0.7;
         }
 
-        .content-box a {
+        .return-link a {
             color: #fff;
             text-decoration: underline;
         }
     </style>
 </head>
 <body>
-    <h1>MEGAHERB</h1>
+    <div class="content">
+        <div class="header-spacer"></div>
+        <div class="title">MEGAHERB</div>
+        <div class="title-spacer"></div>
     <div class="content-box">
-        <p>Test page for megaherb subdomain routing.</p>
-        <p>This should be accessible at megaherb.journals.network</p>
-        <br>
-        <a href="//journals.network">← Return to index</a>
+        <div class="no-info">No information provided yet</div>
+        
+        <div class="return-link">
+            <a href="//journals.network">← Return to index</a>
+        </div>
+    </div>
+        <div class="footer-spacer"></div>
     </div>
 </body>
 </html>
