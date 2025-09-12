@@ -178,32 +178,16 @@ class JournalsPreloader {
         const preloadedHtml = await this.preloadPage(preloadUrl);
         
         if (preloadedHtml) {
-            // Replace entire document with preloaded content
+            // Replace entire document with preloaded content instantly
             const tempDiv = document.createElement('div');
             tempDiv.innerHTML = preloadedHtml;
             const newDocumentContent = tempDiv.querySelector('html') || tempDiv;
             
-            // Fade out current page
-            document.body.style.opacity = '0';
-            document.body.style.transition = 'opacity 0.2s ease';
+            // Instant replacement for perceived speed
+            document.documentElement.innerHTML = newDocumentContent.innerHTML;
             
-            setTimeout(() => {
-                // Replace entire document content
-                document.documentElement.innerHTML = newDocumentContent.innerHTML;
-                
-                // Update URL without triggering navigation
-                window.history.pushState({}, '', url);
-                
-                // Fade in new page
-                document.body.style.opacity = '1';
-                
-                // Fallback navigation after brief delay
-                setTimeout(() => {
-                    if (window.location.href !== url) {
-                        window.location.href = url;
-                    }
-                }, 50);
-            }, 200);
+            // Then immediately redirect to the actual URL
+            window.location.href = url;
         } else {
             window.location.href = url;
         }
