@@ -130,7 +130,7 @@ class JournalsPreloader {
         this.addTimeout(() => {
             if (this.currentArtist === artistName && this.transitionState === 'hovering') {
                 const bio = this.artistBios.get(artistName) || 'No bio available';
-                this.elements.bioContent.textContent = bio;
+                this.elements.bioContent.innerHTML = `<div class="bio-text">${bio.replace(/\n/g, '<br>')}</div>`;
                 this.elements.bioContent.classList.add('show');
             }
         }, 150);
