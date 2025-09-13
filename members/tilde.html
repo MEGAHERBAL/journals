@@ -6,8 +6,8 @@
     <title>tilde - JOURNALS</title>
     <style>
         @font-face {
-            font-family: 'EVA-Matisse';
-            src: url('../fonts/EVA-Matisse_Classic.ttf') format('truetype');
+            font-family: 'title-font';
+            src: url('../fonts/NEXTYPE_v1.4 by SYIN.otf') format('opentype');
         }
 
         * {
@@ -19,7 +19,7 @@
         body {
             background: #000;
             color: #fff;
-            font-family: Helvetica, sans-serif;
+            font-family: 'Roboto Mono', monospace;
             height: 100vh;
             overflow: hidden;
         }
@@ -46,10 +46,10 @@
 
         .title {
             text-align: center;
-            font-family: 'EVA-Matisse', serif;
-            font-size: clamp(3rem, 8vw, 8rem);
-            letter-spacing: -0.01em;
-            transform: scaleX(0.5);
+            font-family: 'title-font', serif;
+            font-size: clamp(1.5rem, 4vw, 3rem);
+            /* letter-spacing: -0.01em; */
+            /* transform: scaleX(0.5); */
             width: 90%;
             min-width: 40vw;
             max-width: 60vw;
@@ -76,7 +76,7 @@
 
         .bio {
             margin-bottom: 2rem;
-            font-size: 1rem;
+            font-size: 0.85rem;
             line-height: 1.6;
             width: fit-content;
             margin-left: auto;
@@ -100,15 +100,17 @@
 
         .label {
             text-align: right;
+            font-size: 0.75rem;
         }
 
         .colon {
             text-align: center;
+            font-size: 0.75rem;
         }
 
         .info {
             text-align: left;
-            font-size: 0.9rem;
+            font-size: 0.75rem;
         }
 
         .info a {

@@ -18,7 +18,7 @@
         body {
             background: #000;
             color: #fff;
-            font-family: Arial, sans-serif;
+            font-family: 'Roboto Mono', monospace;
             height: 100vh;
             overflow: hidden;
         }
@@ -42,13 +42,13 @@
 
         .title {
             text-align: center;
-            font-family: 'EVA-Matisse', serif;
-            font-size: clamp(3rem, 8vw, 8rem);
-            letter-spacing: -0.01em;
-            transform: scaleX(0.5);
-            width: 90%;
+            font-family: 'title-font', serif;
+            font-size: clamp(1rem, 4vw, 3rem);
+            /* letter-spacing: -0.01em; */
+            /* transform: scaleX(0.5); */
+            width: 100%;
             min-width: 40vw;
-            max-width: 60vw;
+            max-width: 70vw;
             margin: 0 auto;
             text-shadow:
                 0 0 10px rgba(255, 255, 255, 0.6),
@@ -108,7 +108,7 @@
             justify-content: center;
             opacity: 0;
             transition: opacity 0.3s ease;
-            font-family: Helvetica, sans-serif;
+            font-family: 'Roboto Mono', monospace;
             font-size: 1.2rem;
             line-height: 1.6;
             text-align: left;
@@ -128,7 +128,7 @@
         .sidebar {
             width: 15%;
             padding: 20px;
-            font-family: Helvetica, Arial, sans-serif;
+            font-family: 'Roboto Mono', monospace;
             display: flex;
             flex-direction: column;
             justify-content: space-evenly;
@@ -162,8 +162,8 @@
         }
 
         @font-face {
-            font-family: 'EVA-Matisse';
-            src: url('fonts/EVA-Matisse_Classic.ttf') format('truetype');
+            font-family: 'title-font';
+            src: url('fonts/NEXTYPE_v1.4 by SYIN.otf') format('opentype');
             font-weight: normal;
             font-style: normal;
         }
