@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -144,56 +145,69 @@
         }
 
         .album {
-            border: 0; 
+            border: 0;
             width: 32%;
             height: 220px;
         }
     </style>
 </head>
+
 <body>
     <div class="content">
         <div class="header-spacer"></div>
         <div class="title-spacer"></div>
-            <div class="content-box">
-                <b class="title" style="font-size: clamp(1rem, 3vw, 2rem); height: auto; margin-bottom: 1rem;">Llythyryn Mud</b>
-                <div class="bio">
-                    <p>𓆏𓆏𓆏 𓃭𓃭𓃭 𓆤𓆤𓆤</p>
-                    <i id="quote">a</i>
-                </div>
+        <div class="content-box">
+            <b class="title" style="font-size: clamp(1rem, 3vw, 2rem); height: auto; margin-bottom: 1rem;">Llythyryn
+                Mud</b>
+            <div class="bio">
+                <p>𓆏𓆏𓆏 𓃭𓃭𓃭 𓆤𓆤𓆤</p>
+                <i id="quote">a</i>
+            </div>
 
-                <div class="highlight">
-                    <iframe src="https://www.youtube.com/embed/NVwxgyC_uqw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
+            <div class="highlight">
+                <iframe src="https://www.youtube.com/embed/NVwxgyC_uqw" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
 
-                <i class="title" style="font-size: clamp(0.8rem, 2.5vw, 1.5rem); height: auto; margin: 2rem 0 1rem 0; text-align: center; width: 100%;">albums</i>
+            <i class="title"
+                style="font-size: clamp(0.8rem, 2.5vw, 1.5rem); height: auto; margin: 2rem 0 1rem 0; text-align: center; width: 100%;">albums</i>
 
-                <div class="albums">
-                    <iframe class="album" src="https://bandcamp.com/EmbeddedPlayer/album=1440834733/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/" seamless><a href="https://llythyryn-mud.bandcamp.com/album/wooden-gate">Wooden Gate</a></iframe>
-                    <iframe class="album" src="https://bandcamp.com/EmbeddedPlayer/album=2658276545/size=large/bgcol=333333/linkcol=e99708/tracklist=false/transparent=true/" seamless><a href="https://llythyryn-mud.bandcamp.com/album/they-would-have-been-warned">They Would Have Been Warned</a></iframe>
-                    <iframe class="album" src="https://bandcamp.com/EmbeddedPlayer/album=2670095309/size=large/bgcol=333333/linkcol=2ebd35/tracklist=false/transparent=true/" seamless><a href="https://llythyryn-mud.bandcamp.com/album/suncat">Suncat</a></iframe>
-                </div>
-                
-                <div class="return-link">
-                    <a href="../">← return to index</a>
-                </div>
+            <div class="albums">
+                <iframe class="album"
+                    src="https://bandcamp.com/EmbeddedPlayer/album=1440834733/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/"
+                    seamless><a href="https://llythyryn-mud.bandcamp.com/album/wooden-gate">Wooden Gate</a></iframe>
+                <iframe class="album"
+                    src="https://bandcamp.com/EmbeddedPlayer/album=2658276545/size=large/bgcol=333333/linkcol=e99708/tracklist=false/transparent=true/"
+                    seamless><a href="https://llythyryn-mud.bandcamp.com/album/they-would-have-been-warned">They Would
+                        Have Been Warned</a></iframe>
+                <iframe class="album"
+                    src="https://bandcamp.com/EmbeddedPlayer/album=2670095309/size=large/bgcol=333333/linkcol=2ebd35/tracklist=false/transparent=true/"
+                    seamless><a href="https://llythyryn-mud.bandcamp.com/album/suncat">Suncat</a></iframe>
+            </div>
+
+            <div class="return-link">
+                <a href="//journals.network">← Return to index</a>
+            </div>
         </div>
         <div class="footer-spacer"></div>
-        
+
     </div>
-<iframe style="height:0px;width:0px;visibility:hidden" src="about:blank">
-    this frame prevents back forward cache
-</iframe>
+    <iframe style="height:0px;width:0px;visibility:hidden" src="about:blank">
+        this frame prevents back forward cache
+    </iframe>
 </body>
+
 </html>
 <script>
-        const quotes = ['it is commonly known that ants keep slaves', 
-            'there\'s poison underneath the sink of course', 
-            'ye have too cruel eyes, and ye look wantonly towards the sufferers',
-            'behold, i am disease',
-            'distrust all in whom the impulse to punish is powerful',
-            'but take thy poison back! thou art not rich enough to present it to me',
-            'the perfect stuff',
-            'ถ้ามี​ช้าง​ณ​ห้อง​ ก็​อยู่​ห้อง​ผิด'];
-        var index = Math.floor(Math.random() * quotes.length);
-        document.getElementById('quote').innerHTML = quotes[index];
+    const quotes = ['it is commonly known that ants keep slaves',
+        'there\'s poison underneath the sink of course',
+        'ye have too cruel eyes, and ye look wantonly towards the sufferers',
+        'behold, i am disease',
+        'distrust all in whom the impulse to punish is powerful',
+        'but take thy poison back! thou art not rich enough to present it to me',
+        'the perfect stuff',
+        'ถ้ามี​ช้าง​ณ​ห้อง​ ก็​อยู่​ห้อง​ผิด'];
+    var index = Math.floor(Math.random() * quotes.length);
+    document.getElementById('quote').innerHTML = quotes[index];
 </script>

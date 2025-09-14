@@ -5,7 +5,7 @@ class JournalsPreloader {
         this.currentArtist = null;
         this.transitionState = 'idle';
         this.pendingTimeouts = [];
-        
+
         this.artists = [
             { name: "pearl lump", bio: "04 01 half vampire", url: "//pearllump.journals.network", preloadUrl: "members/pearllump.html" },
             { name: "Llythyryn Mud", bio: "𓆏𓆏𓆏", url: "//llythyrynmud.journals.network", preloadUrl: "members/llythyrynmud.html" },
@@ -66,13 +66,13 @@ class JournalsPreloader {
 
     setupEventListeners() {
         const artistLinks = document.querySelectorAll('a[data-artist]');
-        
+
         artistLinks.forEach(link => {
             const artistName = link.getAttribute('data-artist');
             const url = link.getAttribute('href');
-            
+
             if (!artistName || !url) return;
-            
+
             const artist = this.artists.find(a => a.name === artistName);
             if (!artist) return;
 
@@ -89,7 +89,7 @@ class JournalsPreloader {
                 this.handleArtistClick(url, artist.preloadUrl);
             });
         });
-        
+
         window.addEventListener('popstate', () => {
             window.location.reload();
         });
@@ -99,21 +99,17 @@ class JournalsPreloader {
         this.clearPendingTimeouts();
         this.currentArtist = artistName;
         this.transitionState = 'hovering';
-        
+
         this.preloadPage(preloadUrl);
-        
-        // Fade out glow first
+
         this.elements.title.classList.add('fade-glow');
         this.addTimeout(() => {
             if (this.currentArtist === artistName) {
-                // Then fade out opacity
                 this.elements.title.style.opacity = '0';
                 this.addTimeout(() => {
                     if (this.currentArtist === artistName) {
-                        // Change text and fade back in
                         this.elements.title.textContent = artistName;
                         this.elements.title.style.opacity = '1';
-                        // Restore glow
                         this.addTimeout(() => {
                             if (this.currentArtist === artistName) {
                                 this.elements.title.classList.remove('fade-glow');
@@ -126,7 +122,7 @@ class JournalsPreloader {
 
         this.elements.youtubeEmbed.style.opacity = '0';
         this.elements.bioContent.classList.remove('show');
-        
+
         this.addTimeout(() => {
             if (this.currentArtist === artistName && this.transitionState === 'hovering') {
                 const bio = this.artistBios.get(artistName) || 'No bio available';
@@ -138,11 +134,11 @@ class JournalsPreloader {
 
     handleArtistLeave() {
         if (!this.currentArtist) return;
-        
+
         this.clearPendingTimeouts();
         this.currentArtist = null;
         this.transitionState = 'leaving';
-        
+
         this.elements.title.classList.add('fade-glow');
         this.addTimeout(() => {
             if (!this.currentArtist) {
@@ -172,10 +168,8 @@ class JournalsPreloader {
 
     async handleArtistClick(url, preloadUrl) {
         const preloadedHtml = await this.preloadPage(preloadUrl);
-        
+
         if (preloadedHtml) {
-            // For Safari compatibility, minimize DOM manipulation
-            // Only show a loading indication instead of full DOM replacement
             const loadingOverlay = document.createElement('div');
             loadingOverlay.style.cssText = `
                 position: fixed;
@@ -188,13 +182,13 @@ class JournalsPreloader {
                 opacity: 0;
                 transition: opacity 0.1s ease;
             `;
-            
+
             document.body.appendChild(loadingOverlay);
-            
+
             requestAnimationFrame(() => {
                 loadingOverlay.style.opacity = '1';
             });
-            
+
             setTimeout(() => {
                 window.location.href = url;
             }, 50);
@@ -204,8 +198,8 @@ class JournalsPreloader {
     }
 }
 
-// Safari bfcache handling - must be outside class
-window.onpageshow = function(event) {
+// Safari bfcache handling - must be outside class?
+window.onpageshow = function (event) {
     if (event.persisted) {
         window.location.reload();
     }
