@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RUBY - JOURNALS</title>
+    <link rel="shortcut icon" href="https://journals.network/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="https://journals.network/images/favicon_32x32.png" sizes="32x32">
+    <link rel="icon" href="https://journals.network/images/favicon_48x48.png" sizes="48x48">
+    <link rel="icon" href="https://journals.network/images/favicon_96x96.png" sizes="96x96">
+    <link rel="icon" href="https://journals.network/images/favicon_144x144.png" sizes="144x144">
+    <style>
+        @font-face {
+            font-family: 'title-font';
+            src: url('https://journals.network/fonts/NEXTYPE_v1.4 by SYIN.otf') format('opentype');
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #000;
+            color: #fff;
+            font-family: 'Roboto Mono', monospace;
+            min-height: 100vh;
+            overflow: auto;
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            width: 100%;
+        }
+
+        .header-spacer {
+            height: 3vh;
+        }
+
+        .title-spacer {
+            height: 3vh;
+        }
+
+        .footer-spacer {
+            height: 18vh;
+        }
+
+        .title {
+            text-align: center;
+            font-family: 'title-font', serif;
+            font-size: clamp(1.5rem, 4vw, 3rem);
+            /* letter-spacing: -0.01em; */
+            /* transform: scaleX(0.5); */
+            width: 90%;
+            min-width: 40vw;
+            max-width: 60vw;
+            margin: 0 auto;
+            text-shadow:
+                0 0 5px rgba(255, 255, 255, 0.8),
+                0 0 10px rgba(255, 255, 255, 0.3),
+                0 0 15px rgba(255, 255, 255, 0.1);
+            height: 15vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            white-space: nowrap;
+        }
+
+        .subheader {
+            font-weight: 800;
+            margin-bottom: .5rem;
+            font-size: 2rem;
+        }
+
+        .content-box {
+            background: #1d1b23;
+            border: 3px solid #fff;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+            max-width: 800px;
+            text-align: center;
+            padding-top: 3rem;
+            padding-bottom: 3rem;
+        }
+        
+        .content-box p {
+            padding-left: 3rem;
+            padding-right: 3rem;
+        }
+
+        .section {
+            margin-bottom: 3rem;
+        }
+
+        .section p {
+            margin-bottom: 1rem;
+        }
+
+        .album-box {
+            min-height: 300px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .album {
+            filter: drop-shadow(5px 5px 20px #000000);
+            border: 0;
+            width: 100%;
+            padding-left: 3rem;
+            padding-right: 3rem;
+        }
+
+        .album-label {
+            padding-bottom: 1.5rem;
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .no-info {
+            font-size: 0.85rem;
+            margin-bottom: 2rem;
+            opacity: 0.7;
+        }
+
+        a {
+            color: #a99dcc;
+        }
+
+        .return-link a {
+            color: #fff;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <div class="header-spacer"></div>
+        <div class="title">Ruby</div>
+        <div class="title-spacer"></div>
+        <div class="content-box">
+            <div class="bio section">
+                <h2 class="subheader">Pronouns In Bio</h2>
+                <p>I'm (she/her) a multimedia artist that has a strong fascination with computers and audio software. Ever since I was a small child I’ve always been in love with computers and the art of making them do things. What started as just playing around with settings in the windows control panel on the family computer has blossomed into playing with web and game development, electronic music production, and various types of digitally rendered visuals.</p>
+                <p>This past year or so I’ve really been pushing myself to get good at music production, with the hopes of turning it into my full-time career. I’ve been documenting the things I learn along the way on my <a href="https://www.youtube.com/@rubyjcasey">YouTube channel</a>, and of course have been steadily releasing my finished songs.</p>
+            </div>
+            
+            <div class="album-list section">
+                <h2 class="subheader">Music</h2>
+                <p>I'm into like a lot of genres and have too many aliases so you can find some of my more notable releases below.</p>
+                
+                <div class="album-box" style="background-image: radial-gradient(#1d1b2366, #1d1b23 50%), url(../images/ruby-page/sylvirgo-bg.webp);">
+                    <h3 class="album-label">[LATEST] Sylvia Virgo (Ambient/Downtempo)</h3>
+                    <iframe class="album" src="https://bandcamp.com/EmbeddedPlayer/album=2116569844/size=large/bgcol=333333/linkcol=ffffff/tracklist=false/artwork=small/transparent=true/" seamless><a href="https://sylvirgo.bandcamp.com/album/i-will-make-it-out-of-this-alive-2">PREFIX by Arlie Moore</a></iframe>
+                </div>
+
+                <div class="album-box" style="background-image: radial-gradient(#1d1b2366, #1d1b23 50%), url(../images/ruby-page/prefix-bg.webp);">
+                    <h3 class="album-label">Arlie Moore (Bass)</h3>
+                    <iframe class="album" src="https://bandcamp.com/EmbeddedPlayer/album=2863082588/size=large/bgcol=333333/linkcol=ffffff/tracklist=false/artwork=small/transparent=true/" seamless><a href="https://rubyjcasey.bandcamp.com/album/prefix">PREFIX by Arlie Moore</a></iframe>
+                </div>
+
+                <div class="album-box" style="background-image: radial-gradient(#1d1b2366, #1d1b23 50%), url(../images/ruby-page/sunsoak-bg.webp);">
+                    <h3 class="album-label">Metraxen (IDM/Trip-Hop)</h3>
+                    <iframe class="album" src="https://bandcamp.com/EmbeddedPlayer/album=3230487914/size=large/bgcol=333333/linkcol=ffffff/tracklist=false/artwork=small/transparent=true/" seamless><a href="https://rubyjcasey.bandcamp.com/album/sunsoak-2">Sunsoak by Metraxen</a></iframe>
+                </div>
+            </div>
+            <div class="contact section">
+                <h2 class="subheader">Contact</h2>
+                <p>You're always welcome to shoot me and email at <a href="mailto:ruby@cxsey.com">ruby@cxsey.com</a>, or dm me on discord with @rubyjcxsey! You can also find more of the stuff I do at <a href="https://cxsey.com">cxsey.com</a>.</p>
+            </div>
+
+            <div class="return-link">
+                <a href="//journals.network">← Return to index</a>
+            </div>
+        </div>
+        <div class="footer-spacer"></div>
+    </div>
+    <iframe style="height:0px;width:0px;visibility:hidden" src="about:blank">
+        this frame prevents back forward cache
+    </iframe>
+</body>
+
+</html>
