@@ -90,9 +90,33 @@ class JournalsPreloader {
             });
         });
         
-        // Handle browser back button
         window.addEventListener('popstate', () => {
-            window.location.reload();
+            const hostname = window.location.hostname;
+            const isSubdomain = hostname !== 'journals.network' && hostname.includes('journals.network');
+            const isMainPath = window.location.pathname === '/' || window.location.pathname === '/index.html';
+            
+            if (isSubdomain && isMainPath) {
+                this.clearPendingTimeouts();
+                window.location.replace('https://journals.network/');
+            } else if (!isSubdomain && isMainPath) {
+                this.clearPendingTimeouts();
+                window.location.reload(true);
+                
+                // Fallback for Safari
+                setTimeout(() => {
+                    if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
+                        window.location.replace('https://journals.network/');
+                    }
+                }, 100);
+            } else {
+                window.location.reload();
+            }
+        });
+        
+        window.addEventListener('pageshow', (event) => {
+            if (event.persisted) {
+                window.location.reload(true);
+            }
         });
     }
 
@@ -144,18 +168,14 @@ class JournalsPreloader {
         this.currentArtist = null;
         this.transitionState = 'leaving';
         
-        // Fade out glow first
         this.elements.title.classList.add('fade-glow');
         this.addTimeout(() => {
             if (!this.currentArtist) {
-                // Then fade out opacity
                 this.elements.title.style.opacity = '0';
                 this.addTimeout(() => {
                     if (!this.currentArtist) {
-                        // Change text and fade back in
                         this.elements.title.textContent = 'JOURNALS';
                         this.elements.title.style.opacity = '1';
-                        // Restore glow
                         this.addTimeout(() => {
                             if (!this.currentArtist) {
                                 this.elements.title.classList.remove('fade-glow');
@@ -179,16 +199,30 @@ class JournalsPreloader {
         const preloadedHtml = await this.preloadPage(preloadUrl);
         
         if (preloadedHtml) {
-            // Replace entire document with preloaded content instantly
-            const tempDiv = document.createElement('div');
-            tempDiv.innerHTML = preloadedHtml;
-            const newDocumentContent = tempDiv.querySelector('html') || tempDiv;
+            // For Safari compatibility, minimize DOM manipulation
+            // Only show a loading indication instead of full DOM replacement
+            const loadingOverlay = document.createElement('div');
+            loadingOverlay.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: #000;
+                z-index: 9999;
+                opacity: 0;
+                transition: opacity 0.1s ease;
+            `;
             
-            // Instant replacement for perceived speed
-            document.documentElement.innerHTML = newDocumentContent.innerHTML;
+            document.body.appendChild(loadingOverlay);
             
-            // Then immediately redirect to the actual URL
-            window.location.href = url;
+            requestAnimationFrame(() => {
+                loadingOverlay.style.opacity = '1';
+            });
+            
+            setTimeout(() => {
+                window.location.href = url;
+            }, 50);
         } else {
             window.location.href = url;
         }
