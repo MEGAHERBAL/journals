@@ -91,33 +91,14 @@ class JournalsPreloader {
         });
         
         window.addEventListener('popstate', () => {
-            const hostname = window.location.hostname;
-            const isSubdomain = hostname !== 'journals.network' && hostname.includes('journals.network');
-            const isMainPath = window.location.pathname === '/' || window.location.pathname === '/index.html';
-            
-            if (isSubdomain && isMainPath) {
-                this.clearPendingTimeouts();
-                window.location.replace('https://journals.network/');
-            } else if (!isSubdomain && isMainPath) {
-                this.clearPendingTimeouts();
-                window.location.reload(true);
-                
-                // Fallback for Safari
-                setTimeout(() => {
-                    if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
-                        window.location.replace('https://journals.network/');
-                    }
-                }, 100);
-            } else {
-                window.location.reload();
-            }
+            window.location.reload();
         });
         
-        window.addEventListener('pageshow', (event) => {
+        window.onpageshow = function(event) {
             if (event.persisted) {
-                window.location.reload(true);
+                window.location.reload() 
             }
-        });
+        };
     }
 
     handleArtistHover(artistName, preloadUrl) {
