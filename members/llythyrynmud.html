@@ -142,12 +142,17 @@
 
         .albums {
             align-self: center;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
         }
 
         .album {
             border: 0;
-            width: 32%;
+            max-width: 32%;
             height: 220px;
+            flex-grow: 1;
+            flex-shrink: 1;
         }
     </style>
 </head>
