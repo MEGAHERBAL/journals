@@ -142,12 +142,17 @@
 
         .albums {
             align-self: center;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
         }
 
         .album {
             border: 0;
-            width: 32%;
-            height: 220px;
+            max-width: 32%;
+            aspect-ratio: 1 / 1;
+            flex-grow: 1;
+            flex-shrink: 1;
         }
     </style>
 </head>
@@ -171,7 +176,7 @@
             </div>
 
             <i class="title"
-                style="font-size: clamp(0.8rem, 2.5vw, 1.5rem); height: auto; margin: 2rem 0 1rem 0; text-align: center; width: 100%;">albums</i>
+                style="font-size: clamp(0.8rem, 2.5vw, 1.5rem); height: auto; margin: 2rem auto 1rem auto; text-align: center; width: 100%;">albums</i>
 
             <div class="albums">
                 <iframe class="album"
