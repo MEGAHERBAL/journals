@@ -168,30 +168,16 @@ class JournalsPreloader {
 
     async handleArtistClick(url, preloadUrl) {
         const preloadedHtml = await this.preloadPage(preloadUrl);
-
+        
         if (preloadedHtml) {
-            const loadingOverlay = document.createElement('div');
-            loadingOverlay.style.cssText = `
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: #000;
-                z-index: 9999;
-                opacity: 0;
-                transition: opacity 0.1s ease;
-            `;
-
-            document.body.appendChild(loadingOverlay);
-
-            requestAnimationFrame(() => {
-                loadingOverlay.style.opacity = '1';
-            });
-
-            setTimeout(() => {
-                window.location.href = url;
-            }, 50);
+            // Replace entire document with preloaded content instantly
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = preloadedHtml;
+            const newDocumentContent = tempDiv.querySelector('html') || tempDiv;
+            document.documentElement.innerHTML = newDocumentContent.innerHTML;
+            
+            // Then immediately redirect to the actual URL
+            window.location.href = url;
         } else {
             window.location.href = url;
         }
