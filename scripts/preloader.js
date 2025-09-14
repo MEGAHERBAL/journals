@@ -93,12 +93,6 @@ class JournalsPreloader {
         window.addEventListener('popstate', () => {
             window.location.reload();
         });
-        
-        window.onpageshow = function(event) {
-            if (event.persisted) {
-                window.location.reload() 
-            }
-        };
     }
 
     handleArtistHover(artistName, preloadUrl) {
@@ -209,6 +203,13 @@ class JournalsPreloader {
         }
     }
 }
+
+// Safari bfcache handling - must be outside class
+window.onpageshow = function(event) {
+    if (event.persisted) {
+        window.location.reload();
+    }
+};
 
 document.addEventListener('DOMContentLoaded', () => {
     new JournalsPreloader();
