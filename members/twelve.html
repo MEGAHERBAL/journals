@@ -78,6 +78,15 @@
             padding: 3rem;
             max-width: 800px;
             text-align: left;
+            transition: all 0.3s ease;
+        }
+
+        @media (max-aspect-ratio: 1/1) {
+            .content-box {
+                width: 95vw;
+                max-width: min(95vw, 800px);
+                padding: 2rem;
+            }
         }
 
         .bio {
