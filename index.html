@@ -64,6 +64,11 @@
             justify-content: center;
             transition: opacity 0.3s ease, text-shadow 0.15s ease;
             white-space: nowrap;
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+            will-change: contents;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
         }
 
         .title.fade-glow {
@@ -83,6 +88,8 @@
             align-items: center;
             height: 100vh;
             width: 100%;
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
         }
 
         .central-view {
