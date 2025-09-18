@@ -154,10 +154,30 @@
             flex-grow: 1;
             flex-shrink: 1;
         }
+
+        .embroidered-left,
+        .embroidered-right {
+            position: fixed;
+            top: 0;
+            height: 100vh;
+            width: auto;
+            z-index: -1;
+        }
+
+        .embroidered-left {
+            left: 0;
+        }
+
+        .embroidered-right {
+            right: 0;
+            transform: scaleX(-1);
+        }
     </style>
 </head>
 
 <body>
+    <img src="https://journals.network/images/embroidered.svg" alt="" class="embroidered-left">
+    <img src="https://journals.network/images/embroidered.svg" alt="" class="embroidered-right">
     <div class="content">
         <div class="header-spacer"></div>
         <div class="title-spacer"></div>
