@@ -10,7 +10,7 @@ class JournalsPreloader {
             { name: "pearl lump", bio: "04 01 half vampire", url: "//pearllump.journals.network", preloadUrl: "members/pearllump.html" },
             { name: "Llythyryn Mud", bio: "𓆏𓆏𓆏", url: "//llythyrynmud.journals.network", preloadUrl: "members/llythyrynmud.html" },
             { name: "tilde", bio: "~", url: "//tilde.journals.network", preloadUrl: "members/tilde.html" },
-            { name: "Expoded", bio: "Sonic Realms Emerge from Decay", url: "//expoded.journals.network", preloadUrl: "members/expoded.html" },
+            { name: "Expoded", bio: "Sonic realms emerge from decay", url: "//expoded.journals.network", preloadUrl: "members/expoded.html" },
             { name: "Voidsong", bio: "", url: "//voidsong.journals.network", preloadUrl: "members/voidsong.html" },
             { name: "MEGAHERB", bio: "sine scavenger : byte bungler\n\n🌿\n\nit's safe to rest here", url: "//megaherb.journals.network", preloadUrl: "members/megaherb.html" },
             { name: "TWELVE", bio: "Hi, I'm TWELVE. I've been producing for over 15 years and specialise in mixing, mastering, and sound design. From Drum & Bass and Dubstep to House and Techno, experimental genres and beyond, I like toying with all sorts of digital audio.\n\nI'm all about collaboration and when I'm not working on client projects, I'm diving deep into sound design, crafting custom patches, creating powerful drums and sample packs, synthesising new textures, and constantly exploring new ways to shape audio. For me, it's all about innovation and constantly evolving my sound whilst keeping an ear to the ground on what's fresh and exciting.", url: "//twelve.journals.network", preloadUrl: "members/twelve.html" },
