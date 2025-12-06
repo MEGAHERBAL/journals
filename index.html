@@ -45,25 +45,32 @@
             height: 18vh;
         }
 
-        .title {
+        .countdown {
+            font-family: 'eva-matisse', serif;
+            font-size: clamp(1.5rem, 3.5vw, 2.5rem);
             text-align: center;
-            font-family: 'title-font', serif;
-            font-size: clamp(0.5rem, 2.8vw, 2.5rem);
-            /* letter-spacing: -0.01em; */
-            /* transform: scaleX(0.5); */
-            width: 100%;
-            max-width: 50vw;
-            margin: 0 auto;
+            color: #fff;
+            margin-top: 2vh;
+            letter-spacing: 0.1em;
+            transform: scaleY(1.4);
             text-shadow:
                 0 0 5px rgba(255, 255, 255, 0.8),
                 0 0 10px rgba(255, 255, 255, 0.3),
                 0 0 15px rgba(255, 255, 255, 0.1);
+        }
+
+        .title {
+            text-align: center;
+            width: 100%;
+            max-width: 50vw;
+            margin: 0 auto;
             height: 15vh;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            transition: opacity 0.3s ease, text-shadow 0.15s ease;
-            white-space: nowrap;
+            gap: 2vh;
+            transition: opacity 0.3s ease;
             -webkit-transform: translateZ(0);
             transform: translateZ(0);
             will-change: contents;
@@ -71,8 +78,21 @@
             backface-visibility: hidden;
         }
 
-        .title.fade-glow {
-            text-shadow: none;
+        .title-line-1 {
+            font-family: 'title-font', serif;
+            font-size: clamp(0.5rem, 2.8vw, 2.5rem);
+            white-space: nowrap;
+        }
+
+        .title-line-2 {
+            font-family: 'eva-matisse', serif;
+            font-size: clamp(0.8rem, 4vw, 3.5rem);
+            white-space: nowrap;
+            transform: scaleY(1.4);
+            text-shadow:
+                0 0 8px rgba(255, 255, 255, 0.9),
+                0 0 15px rgba(255, 255, 255, 0.6),
+                0 0 25px rgba(255, 255, 255, 0.4);
         }
 
         .content {
@@ -183,7 +203,7 @@
 
         @font-face {
             font-family: 'title-font';
-            src: url('fonts/NEXTYPE_v1.4 by SYIN.otf') format('opentype');
+            src: url('fonts/H4-Mono v0.9.9.otf') format('opentype');
             font-weight: normal;
             font-style: normal;
         }
@@ -201,8 +221,21 @@
             }
 
             .title {
-                font-size: clamp(1rem, 6vw, 4rem);
                 max-width: 90vw;
+            }
+
+            .title-line-1 {
+                font-size: clamp(1rem, 6vw, 4rem);
+            }
+
+            .title-line-2 {
+                font-size: clamp(1.5rem, 8vw, 5rem);
+            }
+
+            .countdown {
+                font-size: clamp(2rem, 6vw, 4rem);
+                margin-top: 3vh;
+                margin-bottom: 2vh;
             }
 
             body {
@@ -306,7 +339,10 @@
             <div class="content-inner">
                 <div class="header-spacer"></div>
 
-                <div class="title" id="title">JOURNALS</div>
+                <div class="title" id="title">
+                    <div class="title-line-1">JOURNALS PRESENTS</div>
+                    <div class="title-line-2">COMPILATION MK II</div>
+                </div>
 
                 <div class="title-spacer"></div>
 
@@ -316,6 +352,8 @@
                         allow="encrypted-media; web-share" allowfullscreen></iframe>
                     <div class="bio-content" id="bio-content"></div>
                 </div>
+
+                <div class="countdown" id="countdown">00 : 00 : 00</div>
 
                 <div class="footer-spacer"></div>
             </div>
@@ -351,31 +389,9 @@
         this frame prevents back forward cache
     </iframe>
 
-    <script>
-        // Mobile menu toggle functionality
-        document.addEventListener('DOMContentLoaded', () => {
-            const mobileToggle = document.getElementById('mobile-toggle');
-            const mobileSidebars = document.getElementById('mobile-sidebars');
-
-            if (mobileToggle && mobileSidebars) {
-                mobileToggle.addEventListener('click', () => {
-                    const isActive = mobileToggle.classList.contains('active');
-
-                    if (isActive) {
-                        // Close mobile menu
-                        mobileToggle.classList.remove('active');
-                        mobileSidebars.classList.remove('show');
-                    } else {
-                        // Open mobile menu
-                        mobileToggle.classList.add('active');
-                        mobileSidebars.classList.add('show');
-                    }
-                });
-            }
-        });
-    </script>
-
+    <script src="scripts/mobile-menu.js"></script>
     <script src="scripts/preloader.js"></script>
+    <script src="scripts/countdown.js"></script>
 </body>
 
 </html>

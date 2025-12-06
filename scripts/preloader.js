@@ -110,7 +110,7 @@ class JournalsPreloader {
                 this.elements.title.style.opacity = '0';
                 this.addTimeout(() => {
                     if (this.currentArtist === artistName) {
-                        this.elements.title.textContent = artistName;
+                        this.elements.title.innerHTML = `<div class="title-line-1">${artistName}</div>`;
                         this.elements.title.style.opacity = '1';
                         this.addTimeout(() => {
                             if (this.currentArtist === artistName) {
@@ -148,7 +148,7 @@ class JournalsPreloader {
                 this.elements.title.style.opacity = '0';
                 this.addTimeout(() => {
                     if (!this.currentArtist) {
-                        this.elements.title.textContent = 'JOURNALS';
+                        this.elements.title.innerHTML = '<div class="title-line-1">JOURNALS PRESENTS</div><div class="title-line-2">COMPILATION MK II</div>';
                         this.elements.title.style.opacity = '1';
                         this.addTimeout(() => {
                             if (!this.currentArtist) {
