@@ -12,7 +12,7 @@ class JournalsPreloader {
             { name: "tilde", bio: "~", url: "//tilde.journals.network", preloadUrl: "members/tilde.html" },
             { name: "Expoded", bio: "Sonic realms emerge from decay", url: "//expoded.journals.network", preloadUrl: "members/expoded.html" },
             { name: "Voidsong", bio: "", url: "//voidsong.journals.network", preloadUrl: "members/voidsong.html" },
-            { name: "MEGAHERB", bio: "sine scavenger : byte bungler\n\n🌿\n\nit's safe to rest here", url: "//megaherb.journals.network", preloadUrl: "members/megaherb.html" },
+            { name: "MEGAHERB", bio: "🌿\n\nit's safe to rest here", url: "//megaherb.journals.network", preloadUrl: "members/megaherb.html" },
             { name: "TWELVE", bio: "Hi, I'm TWELVE. I've been producing for over 15 years and specialise in mixing, mastering, and sound design. From Drum & Bass and Dubstep to House and Techno, experimental genres and beyond, I like toying with all sorts of digital audio.\n\nI'm all about collaboration and when I'm not working on client projects, I'm diving deep into sound design, crafting custom patches, creating powerful drums and sample packs, synthesising new textures, and constantly exploring new ways to shape audio. For me, it's all about innovation and constantly evolving my sound whilst keeping an ear to the ground on what's fresh and exciting.", url: "//twelve.journals.network", preloadUrl: "members/twelve.html" },
             { name: "klarigon", bio: "Klarigon is the MC/producer duo project of ~ and Klara Stereobub. Klara raps, ~ beats.", url: "//klarigon.journals.network", preloadUrl: "members/klarigon.html" },
             { name: "Ruby", bio: "I'm (she/her) a multimedia artist that has a strong fascination with computers and audio software. Ever since I was a small child I've always been in love with computers and the art of making them do things. What started as just playing around with settings in the windows control panel on the family computer has blossomed into playing with web and game development, electronic music production, and various types of digitally rendered visuals.\n\nThis past year or so I've really been pushing myself to get good at music production, with the hopes of turning it into my full-time career. I've been documenting the things I learn along the way, and of course have been steadily releasing my finished songs.", url: "//ruby.journals.network", preloadUrl: "members/ruby.html" },
@@ -148,7 +148,7 @@ class JournalsPreloader {
                 this.elements.title.style.opacity = '0';
                 this.addTimeout(() => {
                     if (!this.currentArtist) {
-                        this.elements.title.innerHTML = '<div class="title-line-1">JOURNALS PRESENTS</div><div class="title-line-2">COMPILATION MK II</div>';
+                        this.elements.title.innerHTML = '<div class="title-line-1">MK II</div>';
                         this.elements.title.style.opacity = '1';
                         this.addTimeout(() => {
                             if (!this.currentArtist) {

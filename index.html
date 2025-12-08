@@ -34,23 +34,23 @@
         }
 
         .header-spacer {
-            height: 3vh;
+            height: 12vh;
         }
 
         .title-spacer {
-            height: 3vh;
+            height: 1vh;
         }
 
         .footer-spacer {
             height: 18vh;
         }
 
-        .countdown {
+        .release-info {
             font-family: 'eva-matisse', serif;
-            font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+            font-size: clamp(0.8rem, 2vw, 1.2rem);
             text-align: center;
             color: #fff;
-            margin-top: 2vh;
+            margin-top: 5vh;
             letter-spacing: 0.1em;
             transform: scaleY(1.4);
             text-shadow:
@@ -80,7 +80,7 @@
 
         .title-line-1 {
             font-family: 'title-font', serif;
-            font-size: clamp(0.5rem, 2.8vw, 2.5rem);
+            font-size: clamp(1.5rem, 5vw, 4rem);
             white-space: nowrap;
         }
 
@@ -225,16 +225,16 @@
             }
 
             .title-line-1 {
-                font-size: clamp(1rem, 6vw, 4rem);
+                font-size: clamp(2rem, 8vw, 5rem);
             }
 
             .title-line-2 {
                 font-size: clamp(1.5rem, 8vw, 5rem);
             }
 
-            .countdown {
-                font-size: clamp(2rem, 6vw, 4rem);
-                margin-top: 3vh;
+            .release-info {
+                font-size: clamp(1rem, 3vw, 1.5rem);
+                margin-top: 5vh;
                 margin-bottom: 2vh;
             }
 
@@ -340,8 +340,7 @@
                 <div class="header-spacer"></div>
 
                 <div class="title" id="title">
-                    <div class="title-line-1">JOURNALS PRESENTS</div>
-                    <div class="title-line-2">COMPILATION MK II</div>
+                    <div class="title-line-1">MK II</div>
                 </div>
 
                 <div class="title-spacer"></div>
@@ -353,7 +352,7 @@
                     <div class="bio-content" id="bio-content"></div>
                 </div>
 
-                <div class="countdown" id="countdown">00 : 00 : 00</div>
+                <div class="release-info" id="release-info"><span style="font-size: 1.3em;">FROM JOURNALS, WITH LOVE</span><br><a href="https://journalscollective.bandcamp.com/album/journals-compilation-mk-ii" target="_blank" style="font-size: 0.5em; color: #fff; text-decoration: underline; text-shadow: none;">https://journalscollective.bandcamp.com/album/journals-compilation-mk-ii</a></div>
 
                 <div class="footer-spacer"></div>
             </div>
@@ -391,7 +390,6 @@
 
     <script src="scripts/mobile-menu.js"></script>
     <script src="scripts/preloader.js"></script>
-    <script src="scripts/countdown.js"></script>
 </body>
 
 </html>
