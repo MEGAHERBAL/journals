@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Vutu to Zebra 3</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #000;
+            color: #e0e0e0;
+            font-family: 'Roboto Mono', monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            background: #1d1b23;
+            border: 3px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
+            padding: 40px;
+            max-width: min(90vw, 600px);
+            border-radius: 8px;
+        }
+
+        .title {
+            font-family: 'Roboto Mono', monospace;
+            font-size: clamp(0.75rem, 2vw, 0.85rem);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .upload-section {
+            margin-bottom: 20px;
+        }
+
+        .status {
+            font-size: clamp(0.65rem, 1.5vw, 0.75rem);
+            margin-top: 20px;
+            padding: 4px;
+            background: #0f0d13;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            border-radius: 4px;
+        }
+
+        .status.success {
+            border-color: #22c55e;
+        }
+
+        .status.error {
+            border-color: #dc2626;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: clamp(0.65rem, 1.5vw, 0.75rem);
+        }
+
+        label:has(input[type="checkbox"]) {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        input[type="text"] {
+            background: #0f0d13;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            color: #e0e0e0;
+            padding: 5px;
+            width: 100%;
+            border-radius: 4px;
+            font-family: 'Roboto Mono', monospace;
+            font-size: clamp(0.65rem, 1.5vw, 0.75rem);
+        }
+
+        input[type="file"] {
+            background: #0f0d13;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            color: #e0e0e0;
+            width: 100%;
+            border-radius: 4px;
+            font-size: clamp(0.65rem, 1.5vw, 0.75rem);
+        }
+
+        input[type="file"]::file-selector-button {
+            background: #e0e0e0;
+            color: #1d1b23;
+            border: none;
+            padding: 5px 10px;
+            margin-right: 10px;
+            font-family: 'Roboto Mono', monospace;
+            cursor: pointer;
+        }
+
+        input[type="file"]::file-selector-button:hover {
+            background: #ccc;
+        }
+
+        input[type="checkbox"] {
+            accent-color: #e0e0e0;
+            width: 14px;
+            height: 14px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        .options {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            background: #e0e0e0;
+            color: #1d1b23;
+            border: none;
+            width: 100%;
+            padding: 12px;
+            font-size: clamp(0.75rem, 2vw, 0.9rem);
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 4px;
+            font-family: 'Roboto Mono', monospace;
+            transition: background 0.3s ease;
+        }
+
+        button:enabled:hover {
+            background: #ccc;
+            box-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+        }
+
+        button:disabled {
+            cursor: not-allowed;
+            background: #666;
+            opacity: 0.6;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="title">Vutu .utu to Zebra3 .csv modal profile converter</h1>
+
+        <div class="upload-section">
+            <label for="fileInput">Select .utu file</label>
+            <input type="file" id="fileInput" accept=".utu" multiple>
+        </div>
+
+        <div>
+            <!-- Check these things later -->
+            <label for="profileName">Profile name:</label>
+            <input type="text" id="profileName" placeholder="...">
+        </div>
+
+        <div class="options">
+            <div>
+                <label><input type="checkbox" id="quantiseCheckbox">Quantise to whole ratios</label>
+                <label><input type="checkbox" id="oddOnlyCheckbox">Odd harmonics only</label>
+            </div>
+        </div>
+
+        <button id="convertButton" disabled>Convert</button>
+
+        <div id="status" class="status">Awaiting files</div>
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="../scripts/partials.js"></script>
+
+</body>
+
+</html>
