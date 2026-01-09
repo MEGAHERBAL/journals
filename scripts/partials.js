@@ -131,7 +131,7 @@ function convertVutuToZebra(vutuData, options) {
         }
     }
 
-    // it is, maybe (?) possible for partials to be out of order
+    // sort partials because they can be out of order
     analysedPartials.sort((a, b) => a.frequency - b.frequency);
 
     // and possible no partials survived 😔
@@ -161,6 +161,13 @@ function convertVutuToZebra(vutuData, options) {
         filteredPartials = discardEvenHarmonics(filteredPartials);
     }
 
+    // keep only the 256 loudest partials
+    if (filteredPartials.length > 256) {
+        filteredPartials.sort((a, b) => b.gainDB - a.gainDB);
+        filteredPartials.length = 256;
+        filteredPartials.sort((a, b) => a.ratio - b.ratio);
+    }
+
     return generateZebraCSV(filteredPartials, options.profileName);
 }
 
@@ -184,26 +191,15 @@ function analysePartial(partial, globalMaxAmp, totalDuration) {
         return null;
     }
 
-    // make sure this partial is decaying
-    // this might not be good, maybe change the way we calculate decay later?
-    // actually I think this is fine since every partial needs at least 2 points
-    const timeAtPeak = partial.time[maxAmpIndex];
-    const timeAtEnd = partial.time[partial.time.length - 1];
-    if (timeAtEnd <= timeAtPeak) {
-        return null;
-    }
-
     const frequency = partial.freq[maxAmpIndex];
-    const finalAmp = partial.amp[partial.amp.length - 1];
-    const decayValue = calculateDecayValue(peakAmp, finalAmp, timeAtPeak, timeAtEnd);
+    const timeAtStart = partial.time[0];
+    const timeAtEnd = partial.time[partial.time.length - 1];
+    const decayValue = (timeAtEnd - timeAtStart) / peakAmp;
 
     return {
         frequency,
         peakAmp,
-        decayValue,
-        timeAtPeak,
-        timeAtEnd,
-        finalAmp
+        decayValue
     };
 }
 
@@ -326,12 +322,6 @@ function coefficientOfVariation(values) {
 
 function amplitudeToDecibels(amp, referenceAmp) {
     return 20 * Math.log10(amp / referenceAmp);
-}
-
-function calculateDecayValue(peakAmp, finalAmp, timeAtPeak, timeAtEnd) {
-    const duration = timeAtEnd - timeAtPeak;
-    const amplitudeDrop = peakAmp - finalAmp;
-    return duration / amplitudeDrop;
 }
 
 function isEvenHarmonic(ratio) {
