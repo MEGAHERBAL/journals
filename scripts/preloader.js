@@ -179,6 +179,8 @@ class JournalsPreloader {
             const newDocumentContent = tempDiv.querySelector('html') || tempDiv;
             document.documentElement.innerHTML = newDocumentContent.innerHTML;
             
+            await document.fonts.ready;
+
             // Then immediately redirect to the actual URL
             window.location.href = url;
         } else {
