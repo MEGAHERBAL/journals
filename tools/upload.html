@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Audio Upload</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #000;
+            color: #e0e0e0;
+            font-family: 'Roboto Mono', monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            background: #1d1b23;
+            border: 3px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
+            padding: 40px;
+            max-width: min(90vw, 600px);
+            border-radius: 8px;
+        }
+
+        .title {
+            font-family: 'Roboto Mono', monospace;
+            font-size: clamp(0.75rem, 2vw, 0.85rem);
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .upload-section {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: clamp(0.65rem, 1.5vw, 0.75rem);
+        }
+
+        input[type="text"] {
+            background: #0f0d13;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            color: #e0e0e0;
+            padding: 5px;
+            width: 100%;
+            border-radius: 4px;
+            font-family: 'Roboto Mono', monospace;
+            font-size: clamp(0.65rem, 1.5vw, 0.75rem);
+        }
+
+        input[type="file"] {
+            background: #0f0d13;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            color: #e0e0e0;
+            width: 100%;
+            border-radius: 4px;
+            font-size: clamp(0.65rem, 1.5vw, 0.75rem);
+        }
+
+        input[type="file"]::file-selector-button {
+            background: #e0e0e0;
+            color: #1d1b23;
+            border: none;
+            padding: 5px 10px;
+            margin-right: 10px;
+            font-family: 'Roboto Mono', monospace;
+            cursor: pointer;
+        }
+
+        input[type="file"]::file-selector-button:hover {
+            background: #ccc;
+        }
+
+        button {
+            background: #e0e0e0;
+            color: #1d1b23;
+            border: none;
+            width: 100%;
+            padding: 12px;
+            font-size: clamp(0.75rem, 2vw, 0.9rem);
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 4px;
+            font-family: 'Roboto Mono', monospace;
+            transition: background 0.3s ease;
+        }
+
+        button:enabled:hover {
+            background: #ccc;
+            box-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+        }
+
+        button:disabled {
+            cursor: not-allowed;
+            background: #666;
+            opacity: 0.6;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="title">Audio file upload</h1>
+
+        <div class="upload-section">
+            <label for="fileInput">Secret audio file host for journals members 🤫</label>
+            <input type="file" id="file" accept="audio/*" />
+        </div>
+
+        <button id="uploadButton" disabled>Upload</button>
+
+    </div>
+
+    <!-- <script src="../scripts/partials.js"></script> -->
+
+</body>
+
+</html>
