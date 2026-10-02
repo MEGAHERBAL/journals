@@ -22,7 +22,7 @@
 
         body {
             background: #000;
-            color: #ab0000;
+            color: #ddf8ff;
             font-family: 'Roboto Mono', monospace;
             height: 100vh;
             overflow: hidden;
@@ -45,20 +45,6 @@
             height: 18vh;
         }
 
-        .release-info {
-            font-family: 'eva-matisse', serif;
-            font-size: clamp(0.8rem, 2vw, 1.2rem);
-            text-align: center;
-            color: #ab0000;
-            margin-top: 5vh;
-            letter-spacing: 0.1em;
-            transform: scaleY(1.4);
-            text-shadow:
-                0 0 5px rgba(211, 3, 3, 0.8),
-                0 0 10px rgba(212, 2, 2, 0.3),
-                0 0 15px rgba(198, 0, 0, 0.1);
-        }
-
         .title {
             text-align: center;
             width: 100%;
@@ -79,20 +65,9 @@
         }
 
         .title-line-1 {
-            font-family: 'title-font', serif;
+            font-family: Gill Sans;
             font-size: clamp(1.5rem, 5vw, 4rem);
             white-space: nowrap;
-        }
-
-        .title-line-2 {
-            font-family: 'eva-matisse', serif;
-            font-size: clamp(0.8rem, 4vw, 3.5rem);
-            white-space: nowrap;
-            transform: scaleY(1.4);
-            text-shadow:
-                0 0 5px rgba(211, 3, 3, 0.8),
-                0 0 10px rgba(212, 2, 2, 0.3),
-                0 0 15px rgba(198, 0, 0, 0.1);
         }
 
         .content {
@@ -113,9 +88,9 @@
         }
 
         .central-view {
-            background: #1d1b23;
-            border: 3px solid rgba(150, 1, 1, 0.747);
-            box-shadow: 0 0 15px rgba(187, 0, 0, 0.4);
+            background: #110f1a;
+            border: 2px solid #0f2632;
+            box-shadow: 0 0 0px rgba(231, 229, 243, 0.2);
             width: 80%;
             aspect-ratio: 16 / 9;
             position: relative;
@@ -164,6 +139,27 @@
             pointer-events: auto;
         }
 
+        .release-info {
+            font-family: Gill Sans, sans-serif;
+            font-size: clamp(0.8rem, 2vw, 1rem);
+            text-align: center;
+            color: #ddf8ff;
+            margin-top: 5vh;
+            letter-spacing: 0.1em;
+            text-shadow:
+                0 0 5px rgba(211, 3, 3, 0.8),
+                0 0 10px rgba(212, 2, 2, 0.3),
+                0 0 15px rgba(198, 0, 0, 0.1);
+        }
+
+        .bc-link {
+            font-family: 'hidesans';
+            font-size: 0.5em; 
+            color: #fff; 
+            text-decoration: underline; 
+            text-shadow: none;
+        }
+
         .sidebar {
             width: 15%;
             padding: 20px;
@@ -171,20 +167,20 @@
             display: flex;
             flex-direction: column;
             justify-content: space-evenly;
-            background: #191718;
-            border-right: 3px solid #ab0000;
-            box-shadow: 3px 0 15px rgba(187, 0, 0, 0.4);
+            background: #010b0a;
+            border-right: 1px solid #0f2632;
+            box-shadow: 1px 0 5px rgba(0, 187, 128, 0.2);
             height: 100vh;
         }
 
         .sidebar.right {
             border-right: none;
-            border-left: 3px solid #ab0000;
-            box-shadow: -3px 0 15px rgba(187, 0, 0, 0.4);
+            border-left: 1px solid #0f2632;
+            box-shadow: 1px 0 5px rgba(0, 187, 128, 0.2);
         }
 
         .sidebar a {
-            color: #ab0000;
+            color: #ddf8ff;
             text-decoration: none;
             padding: 10px 0;
             text-align: center;
@@ -215,6 +211,13 @@
             font-style: normal;
         }
 
+        @font-face {
+            font-family: 'hidesans';
+            src: url('fonts/HideSans v0.9.1.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
         @media (max-aspect-ratio: 1/1) {
             .sidebar {
                 display: none;
@@ -226,10 +229,6 @@
 
             .title-line-1 {
                 font-size: clamp(2rem, 8vw, 5rem);
-            }
-
-            .title-line-2 {
-                font-size: clamp(1.5rem, 8vw, 5rem);
             }
 
             .release-info {
@@ -353,7 +352,8 @@
                     <div class="bio-content" id="bio-content"></div>
                 </div>
 
-                <div class="release-info" id="release-info"><span style="font-size: 1.3em;">FROM JOURNALS, WITH LOVE</span><br><a href="https://journalscollective.bandcamp.com/album/journals-compilation-mk-ii" target="_blank" style="font-size: 0.5em; color: #fff; text-decoration: underline; text-shadow: none;">https://journalscollective.bandcamp.com/album/journals-compilation-mk-ii</a></div>
+                <div class="release-info" id="release-info"><span style="font-size: 1.3em;">FROM JOURNALS, WITH LOVE</span><br>
+                    <a class="bc-link" id="bc-link" href="https://journalscollective.bandcamp.com/album/journals-compilation-mk-ii" target="_blank">https://journalscollective.bandcamp.com/album/journals-compilation-mk-ii</a></div>
 
                 <div class="footer-spacer"></div>
             </div>
