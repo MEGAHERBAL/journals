@@ -9,7 +9,7 @@ class JournalsPreloader {
         this.artists = [
             { name: "pearl lump", bio: "04 01 half vampire", url: "//pearllump.journals.network", preloadUrl: "members/pearllump.html" },
             { name: "Llythyryn Mud", bio: "𓆏𓆏𓆏", url: "//llythyrynmud.journals.network", preloadUrl: "members/llythyrynmud.html" },
-            { name: "tilde", bio: "~", url: "//tilde.journals.network", preloadUrl: "members/tilde.html" },
+            { name: "ti-lde", bio: "~", url: "//tilde.journals.network", preloadUrl: "members/tilde.html" },
             { name: "Expoded", bio: "Sonic realms emerge from decay", url: "//expoded.journals.network", preloadUrl: "members/expoded.html" },
             { name: "Voidsong", bio: "", url: "//voidsong.journals.network", preloadUrl: "members/voidsong.html" },
             { name: "atndris122", bio: "𓆙 nonbinary reptile chimera 𓆈", url: "//atndris122.journals.network", preloadUrl: "members/atndris122.html" },
